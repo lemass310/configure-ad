@@ -187,5 +187,7 @@ Observe the the accounts being created in the "_EMPLOYEES" folder we created in 
 </p>
 <p>
 Select any random account and then attempt to log into Client-1 using their username. 
+  
+That's it, you have successfully set up an Active Directory system 
 </p>
 <br />
