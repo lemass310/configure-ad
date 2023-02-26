@@ -150,6 +150,42 @@ Join Client-1 to your domain Continued:
 
 Login to the Domain Controller (Remote Desktop) and verify Client-1 shows up in Active Directory Users and Computers (ADUC) inside the “Computers” container on the root of the domain
 
-Create a new OU named “_CLIENTS” and drag Client-1 into there</p>
+Create a new OU named “_CLIENTS” and drag Client-1 into there
+</p>
 <br />
 
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Setup Remote Desktop for non-administrative users on Client-1:
+
+Log into Client-1 as mydomain.com\jane_admin and open system properties
+
+Click “Remote Desktop” then allow “domain users” access to remote desktop
+
+You can now log into Client-1 as a normal, non-administrative user now
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Login to DC-1 as jane_admin
+
+Open PowerShell_ise as an administrator
+
+Create a new File and paste the contents of the script to the right into it
+
+Observe the the accounts being created in the "_EMPLOYEES" folder we created in ADUC
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Select any random account and then attempt to log into Client-1 using their username. 
+</p>
+<br />
