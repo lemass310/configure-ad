@@ -60,7 +60,7 @@ Set (DC-1)Domain Controller’s NIC Private IP address to be static.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Ensuring Connectivity betweek client and active directory:
+Ensuring Connectivity between client and active directory:
 
 Login to Client-1 with Remote Desktop and ping DC-1’s private IP address with ping -t <ip address> (perpetual ping)
 </p>
