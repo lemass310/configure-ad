@@ -35,7 +35,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h2>Deployment and Configuration Steps</h2>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/LZQN7mV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Resources Setup: 
@@ -47,7 +47,7 @@ Create the Client VM (Windows 10) named “Client-1”. Use the same Resource Gr
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/upkLVBc.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Resources Setup Continued: 
@@ -57,7 +57,7 @@ Set (DC-1)Domain Controller’s NIC Private IP address to be static.
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/Qiq841l.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Ensuring Connectivity between client and active directory:
@@ -67,7 +67,7 @@ Login to Client-1 with Remote Desktop and ping DC-1’s private IP address with 
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/UlOPMmw.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Ensuring Connectivity Continued:
@@ -79,24 +79,28 @@ Check back at Client-1 to see the ping succeed
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/2qbDSwJ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Install Active Directory
+Install Active Directory:
 
 Login to DC-1 and install Active Directory Domain Services
-
-Promote as a DC: Setup a new forest as mydomain.com (can be anything, just remember what it is)
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/PhKFJcZ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Restart and then log back into DC-1 as user: mydomain.com\labuser
+Promote as a DC: Setup a new forest as activedirectory.com (can be anything, just remember what it is)
+</p>
+<br />
 
-Create an Admin and Normal User Account in AD:
+<p>
+<img src="https://i.imgur.com/V8pDQUX.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Restart and then log back into DC-1 as user: activedirectory.com\labuser
 
 In Active Directory Users and Computers (ADUC), create an Organizational Unit (OU) called “_EMPLOYEES”
 
@@ -107,21 +111,19 @@ Create a new employee named “Jane Doe” (same password) with the username of 
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/pMOJSH0.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Create an Admin and Normal User Account in AD Continued:
-
 Add jane_admin to the “Domain Admins” Security Group
 
-Log out/close the Remote Desktop connection to DC-1 and log back in as “mydomain.com\jane_admin”
+Log out/close the Remote Desktop connection to DC-1 and log back in as “activedirectory.com\jane_admin”
 
 User jane_admin as your admin account from now on.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/rMedkWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Join Client-1 to your domain (mydomain.com):
@@ -133,29 +135,19 @@ From the Azure Portal, restart Client-1
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/Q31jBVO.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Join Client-1 to your domain Continued:
   
 Login to Client-1 (Remote Desktop) as the original local admin (labuser) and join it to the domain (computer will restart)
+
+  Right click start menu -> Go to system -> Rename this PC (advanced)
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Join Client-1 to your domain Continued:
-
-Login to the Domain Controller (Remote Desktop) and verify Client-1 shows up in Active Directory Users and Computers (ADUC) inside the “Computers” container on the root of the domain
-
-Create a new OU named “_CLIENTS” and drag Client-1 into there
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/k7zDFUo.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Setup Remote Desktop for non-administrative users on Client-1:
@@ -169,7 +161,19 @@ You can now log into Client-1 as a normal, non-administrative user now
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/zZ3qKx1.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Join Client-1 to your domain Continued:
+
+Login to the Domain Controller (Remote Desktop) and verify Client-1 shows up in Active Directory Users and Computers (ADUC) inside the “Computers” container on the root of the domain
+
+Create a new OU named “_CLIENTS” and drag Client-1 into there
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/LzcLOQ3.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Login to DC-1 as jane_admin
@@ -183,7 +187,7 @@ Observe the the accounts being created in the "_EMPLOYEES" folder we created in 
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/Hv1cglk.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Select any random account and then attempt to log into Client-1 using their username. 
